@@ -6,7 +6,7 @@
 <br/>
 <h1 style="text-align:center"> Teams List </h1>
 <br/>
-<a href="Team_add"><h3 style="text-align:center"> Add a New Team </h3></a>
+
 <table>
     <thead>
         <tr>
@@ -29,6 +29,9 @@
     {% endfor %}
 </tbody>
 </table>
+<br/>
+<a href="Team_add"><button style="float:left"  class="btn btn-primary1"><strong>Add a New Team</strong></button></a>
+<a href="/Organization" ><button  class="btn btn-primary"><strong>Back</strong></button></a>
 <style>
     a{
         text-decoration:none;
@@ -60,6 +63,29 @@
     td {
     border-bottom: 1px solid #ddd;
     }
+    .btn-primary {
+        background-color: #2F80ED;
+        border: none;
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+       margin-right:420px;
+        float:right;
+      }
+      .btn-primary1 {
+        background-color: #2F80ED;
+        border: none;
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-left:418px;
+      }
+      
+      .btn-primary:hover {
+        background-color: #0069d9;
+      }
 </style>
 
 
