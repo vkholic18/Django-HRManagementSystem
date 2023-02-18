@@ -1,0 +1,106 @@
+{% extends 'employees/base.html' %}
+
+{% block content %}
+<br/>
+<br/>
+  <div class="card">
+    <div class="card-header">
+      <h2>HR Login</h2>
+    </div>
+    <div class="card-body">
+      <form method="post">
+        {% csrf_token %}
+        <div>
+            <label for="{{ form.username.id_for_label }}">Username:</label>
+            {{ form.username }}
+          </div>
+          <div class="form-group">
+            <label for="{{ form.password.id_for_label }}">Password:</label>
+            {{ form.password }}
+          </div>
+        {% if form.errors %}
+          <div class="alert alert-danger" role="alert">
+            {% for field, errors in form.errors.items %}
+              {% for error in errors %}
+                 {{ error }}<br>
+              {% endfor %}
+            {% endfor %}
+          </div>
+        {% endif %}
+        <button type="submit" class="btn btn-primary">Login</button>
+        <br/>
+        <h4>New User? <a href="/signup">Click here</a> to SignUP</h4>
+      </form>
+    </div>
+  </div>
+
+
+  <style>
+    a{
+        text-decoration:none;
+    }
+    .alert {
+        color: #721c24;
+        background-color: #f8d7da;
+        border-color: #f5c6cb;
+        padding: .75rem 1.25rem;
+        margin-bottom: 1rem;
+        border: 1px solid transparent;
+        border-radius: .25rem;
+      }
+    .card {
+        max-width: 500px;
+        margin: auto;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      }
+      
+      .card-header {
+        background-color: #f1f1f1;
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+      }
+      
+      .card-body {
+        padding: 20px;
+      }
+      
+      .form-group {
+        margin-bottom: 10px;
+      }
+      
+      label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+      
+      input[type="text"],
+      input[type="password"] {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-sizing: border-box;
+      }
+      
+      button {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+      }
+      
+      button:hover {
+        background-color: #0062cc;
+      }
+      
+  </style>
+{% endblock %}

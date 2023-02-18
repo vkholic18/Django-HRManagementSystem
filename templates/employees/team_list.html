@@ -1,0 +1,70 @@
+{% extends 'employees/base.html' %}
+
+{% block content %}
+
+
+<br/>
+<h1 style="text-align:center"> Teams List </h1>
+<br/>
+<a href="Team_add"><h3 style="text-align:center"> Add a New Team </h3></a>
+<table>
+    <thead>
+        <tr>
+            <th>Team Name</th>
+            <th>Team leader</th>
+           
+            <th>Action</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+{% for team in teams %}
+<tr>
+    <td><strong>{{ team.name }}</strong></td>
+    <td>{{ team.team_leader }}</td>
+  
+    <td><a href="Teams/{{team.id}}">View Details</a></td>
+   
+</tr>
+    {% endfor %}
+</tbody>
+</table>
+<style>
+    a{
+        text-decoration:none;
+        color:black;
+    }
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    }
+    .head {
+    color: #333;
+    text-align: center;
+    margin-top: 50px;
+    }
+    table {
+    margin: 0 auto;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+    th, td {
+    padding: 10px 20px;
+    text-align: left;
+    }
+    th {
+        background-color: #2F80ED;
+    color: #fff;
+    }
+    td {
+    border-bottom: 1px solid #ddd;
+    }
+</style>
+
+
+
+
+
+
+{% endblock %}

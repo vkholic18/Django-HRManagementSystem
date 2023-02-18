@@ -1,0 +1,126 @@
+{% extends 'employees/base.html' %}
+
+<br/>
+<br/>
+{% block content %}
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css">
+
+<br/>
+<br/>
+        <div class="card mb-4">
+            <div class="card-body pb-2">
+              <h4 class="card-title"><strong>Edit Team</strong></h4>
+              <form method="post">
+                {% csrf_token %}
+                {% if form.errors %}
+                <div class="alert alert-danger" role="alert">
+                  Please correct the following errors:
+                  <ul>
+                    {% for field_errors in form.errors.values %}
+                    {% for error in field_errors %}
+                    <li>{{ error }}</li>
+                    {% endfor %}
+                    {% if field.name == 'birthday' and field.errors %}
+                    <li>Employee must be at least 18 years old.</li>
+                    {% endif %}
+                    {% endfor %}
+                  </ul>
+                </div>
+                {% endif %}
+                <div class="form-group">
+                  <label for="{{ form.name.id_for_label }}">Team Name:</label>
+                  {{ form.name }}
+                </div>
+                <div class="form-group">
+                  <label for="{{ form.team_leader.id_for_label }}">Team Leader:</label>
+                  {{ form.team_leader }}
+                </div>
+                <div class="form-group">
+                  <label for="{{ form.members.id_for_label }}">Team Members:</label>
+                  {{ form.members }}
+                </div>
+                
+                  
+                <button type="submit" class="btn btn-primary">Save</button>
+              </form>
+            </div>
+          </div>
+          
+          
+          
+          
+          
+
+
+<style>
+.card {
+width: 100%;
+max-width: 500px;
+margin: 0 auto;
+background-color: #fff;
+border-radius: 7px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.card-body {
+padding: 20px;
+}
+
+
+
+.form-group {
+margin-bottom: 20px;
+}
+
+label {
+font-size: 1rem;
+font-weight: 600;
+display: block;
+margin-bottom: 10px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"],
+input[type="number"] {
+width: 100%;
+padding: 10px;
+border: 1px solid #ccc;
+border-radius: 5px;
+font-size: 1rem;
+box-sizing: border-box;
+}
+
+button {
+padding: 10px 20px;
+border: none;
+border-radius: 5px;
+background-color: #007bff;
+color: #fff;
+font-size: 1rem;
+cursor: pointer;
+}
+
+button:hover {
+background-color: #0069d9;
+}
+
+.alert {
+margin-bottom: 20px;
+color: #721c24;
+background-color: #f8d7da;
+border-color: #f5c6cb;
+padding: .75rem 1.25rem;
+border: 1px solid transparent;
+border-radius: .25rem;
+}
+
+.alert li {
+margin-bottom: 5px;
+}
+
+
+</style>
+
+
+{% endblock %}
