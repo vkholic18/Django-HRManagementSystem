@@ -1,6 +1,6 @@
 # Django-HRManagementSystem
 
-To run the Django project, follow the steps below:
+To run this Django project, follow the steps below:
 
 1.Make sure that you have Python and Django installed on your machine.
 
